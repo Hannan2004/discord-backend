@@ -50,7 +50,7 @@ app.post("/request-mentor", async (req, res) => {
 
 app.get("/requests", async (req, res) => {
     try {
-        const requests = await mentorRequest.find({});
+        const requests = await mentorRequest.find({ status: "pending" });
         res.status(200).json(requests);
         console.log("Requests fetched successfully");
     } catch (error) {
